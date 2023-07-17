@@ -15,7 +15,7 @@ app.use(express.json({verify: VerifyDiscordRequest(process.env.PUBLIC_KEY)}));
  */
 app.post('/interactions', async function (req, res) {
   // Interaction type and data
-  const {type, data} = req.body;
+  const {type, id, data} = req.body;
 
   /**
    * Handle verification requests
@@ -31,8 +31,8 @@ app.post('/interactions', async function (req, res) {
   if (type === InteractionType.APPLICATION_COMMAND) {
     const {name} = data;
 
-    // "test" command
-    if (name === 'test') {
+    // "hello" command
+    if (['hello', '안녕', '안녕하세요'].includes(name)) {
       // Send a message into the channel where command was triggered from
       return res.send({
         type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE, data: {
@@ -40,6 +40,32 @@ app.post('/interactions', async function (req, res) {
           content: 'hello world ' + getRandomEmoji(),
         },
       });
+    }
+    // "help" command
+    if (['help', 'commands', '도움', '명령어'].includes(name)) {
+    }
+    // "select" command
+    if (['select', 'poll', '선택', '랜덤', '투표'].includes(name)) {
+    }
+
+    // "dice" command
+    if (['dice', '주사위'].includes(name)) {
+    }
+    // "search" command
+    if (['search', '검색'].includes(name)) {
+    }
+    // "rps" command
+    if (['rps', 'rockpaperscissor', 'gbb', 'gawibawibo', '가위바위보'].includes(
+        name)) {
+    }
+    // "fortune" command
+    if (['fortune', '타로'].includes(name)) {
+    }
+    // "out" command
+    if (['out', '에바', '에반데'].includes(name)) {
+    }
+    // "food" command
+    if (['food', '밥', '식단'].includes(name)) {
     }
   }
 });

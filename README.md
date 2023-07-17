@@ -4,7 +4,7 @@ DNLab Discord Bot
 ## TODO
 - [ ] University restaurant menu
 - [ ] Roll dice
-- [ ] Kawi-Bawi-Bo (Rock-Paper-Scissors)
+- [ ] Gawi-Bawi-Bo (Rock-Paper-Scissors)
 - [ ] Tarot fortune-telling
 - [ ] Poll
 
